@@ -28,15 +28,21 @@ function getExercisesByMuscle(int $muscle_id):array
     return $exercises;
 }
 
-function getSchema(string $trainee):array 
+function clearsesion():void 
 {
-    global $pdo;
-    
-    $schema = [];
-
-    $stmt = $pdo->prepare("SELECT * FROM traing_schemas WHERE trainee = ':trainee'");
-    $stmt->execute(['trainee' => $trainee]);
-    $schema = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    return $schema;
+    $_SESSION['schedule'] = [];
 }
+
+
+// function getSchema(string $trainee):array 
+// {
+//     global $pdo;
+    
+//     $schema = [];
+
+//     $stmt = $pdo->prepare("SELECT * FROM traing_schemas WHERE trainee = ':trainee'");
+//     $stmt->execute(['trainee' => $trainee]);
+//     $schema = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+//     return $schema;
+// }

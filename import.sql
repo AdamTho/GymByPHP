@@ -11,10 +11,18 @@ create table exercises (
     id int auto_increment primary key,
     muscle_id int not null,
     name varchar(100) not null,
-    sets int not null,
-    reps int not null,
     foreign key (muscle_id) references muscles(id)
 );
+
+create table training_schemas (
+    id int auto_increment primary key,
+    exercise_id int not null,
+    trainee varchar(100) not null,
+    nr_sets int not null,
+    nr_reps int not null,
+    foreign key (exercise_id) references exercises(id)
+);
+
 
 insert into muscles (muscle_group) values
 ('Chest'),
@@ -24,29 +32,33 @@ insert into muscles (muscle_group) values
 ('Legs'),
 ('Back');
 
-insert into exercises (muscle_id, name, sets, reps) values
-(1, 'Push-ups', 3, 15),
-(1, 'Bench Press', 4, 10),
-(1, 'Dumbbell Flyes', 3, 12),
-(1, 'Incline Bench Press', 3, 10),
+insert into exercises (muscle_id, name) values
+(1, 'Push-ups'),
+(1, 'Bench Press'),
+(1, 'Dumbbell Flyes'),
+(1, 'Incline Bench Press'),
 
-(2, 'Military Press', 3, 12),
-(2, 'Lateral Raises', 3, 15),
-(2, 'Front Raises', 3, 12),
-(2, 'Shoulder Press', 4, 10),
+(2, 'Military Press'),
+(2, 'Lateral Raises'),
+(2, 'Front Raises'),
+(2, 'Shoulder Press'),
 
-(3, 'Barbell Curls', 3, 12),
-(3, 'Hammer Curls', 3, 12),
-(3, 'Preacher Curls', 3, 10),
-(3, 'Concentration Curls', 3, 12),
+(3, 'Barbell Curls'),
+(3, 'Hammer Curls'),
+(3, 'Preacher Curls'),
+(3, 'Concentration Curls'),
 
-(4, 'Tricep Pushdowns', 3, 15),
-(4, 'Skull Crushers', 3, 12),
-(4, 'Diamond Push-ups', 3, 12),
-(4, 'Overhead Extensions', 3, 12),
+(4, 'Tricep Pushdowns'),
+(4, 'Skull Crushers'),
+(4, 'Diamond Push-ups'),
+(4, 'Overhead Extensions'),
 
-(5, 'Squats', 4, 12),
-(5, 'Lunges', 3, 10),
-(5, 'Leg Press', 3, 15),
-(5, 'Calf Raises', 4, 20);
+(5, 'Squats'),
+(5, 'Lunges'),
+(5, 'Leg Press'),
+(5, 'Calf Raises'),
 
+(6, 'Deadlifts'),
+(6, 'Pull-ups'),
+(6, 'Bent-over Rows'),
+(6, 'Lat Pulldowns');
